@@ -12,7 +12,7 @@ def main(argv):
     try:
       opts, args = getopt.getopt(argv,"",["eps=", "mu=", "t="])
     except getopt.GetoptError:
-      print 'test.py -t <T> -eps <epsilon> -mu <mu>'
+      print 'compute.py -t <T> -eps <epsilon> -mu <mu>'
       sys.exit(2)
 
     for opt, arg in opts:
@@ -24,7 +24,7 @@ def main(argv):
         T = arg = int(arg)
 
     if epsilon is None or mu is None or T is None:
-      print 'test.py -t <T> -eps <epsilon> -mu <mu>'
+      print 'compute.py -t <T> -eps <epsilon> -mu <mu>'
       sys.exit(2)
 
     print(fermi_dirac(epsilon, mu, T))
@@ -36,3 +36,4 @@ def fermi_dirac(epsilon, mu, T):
 
 if __name__ == "__main__":
     main(sys.argv[1:])
+    print("SUCCESSFUL")
