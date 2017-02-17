@@ -9,7 +9,7 @@
   "default_inputs": {
     "eps": 0.04,
     "mu": 1.0,
-    "T": 400
+    "t": 400
   },
   "inputs": [
     {
