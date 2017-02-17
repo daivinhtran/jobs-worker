@@ -59,12 +59,15 @@ def main():
       run_sh = Template(run_sh).substitute(name=name, params=s)
 
       # print(run_sh)
-      
-      output, input = popen2('qsub')
-      input.write(run_sh)
-      input.close()
-      print output.read()
+      submit_helper(run_sh)
+
       # sh.qsub(run_sh)
+
+def submit_helper(run_sh):
+    output, input = popen2('qsub')
+    input.write(run_sh)
+    input.close()
+    return output.read()
 
 if __name__ == "__main__":
     main()
