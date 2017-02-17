@@ -58,7 +58,7 @@ def main():
 
       run_sh = Template(run_sh).substitute(name=name, params=s)
 
-      # print(run_sh)
+      print(run_sh)
       submit_helper(run_sh)
 
       # sh.qsub(run_sh)
