@@ -1,0 +1,24 @@
+{
+  "name": "fermi_dirac",
+  "resources": {
+    "nodes": 4,
+    "ppn": 2,
+    "walltime": "00:10:00",
+    "queue": "joe-test"
+  },
+  "default_inputs": {
+    "eps": 0.04,
+    "mu": 1.0,
+    "T": 400
+  },
+  "inputs": [
+    {
+      "eps": 0.01,
+      "mu": 1.5,
+      "t": 500
+    },
+    {
+      "eps": 0.02
+    }
+  ]
+}
