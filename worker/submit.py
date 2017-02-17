@@ -2,6 +2,7 @@ import json
 from string import Template
 import os
 import sh
+from popen2 import popen2
 
 cwd = os.path.dirname(os.path.abspath(__file__))
 
@@ -57,7 +58,10 @@ def main():
 
       run_sh = Template(run_sh).substitute(name=name, params=s)
 
-      print(run_sh)
+      # print(run_sh)
+      
+      output, input = popen2('qsub')
+      input.write(run_sh)
       sh.qsub(run_sh)
 
 if __name__ == "__main__":
