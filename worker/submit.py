@@ -62,7 +62,9 @@ def main():
       
       output, input = popen2('qsub')
       input.write(run_sh)
-      sh.qsub(run_sh)
+      input.close()
+      print output.read()
+      # sh.qsub(run_sh)
 
 if __name__ == "__main__":
     main()
