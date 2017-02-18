@@ -5,8 +5,12 @@ import sh
 from popen2 import popen2
 
 cwd = os.path.dirname(os.path.abspath(__file__))
+storage_dir = cws + '/../storage'
 
-def main():   
+def main():
+  submit_jobs()
+
+def submit_jobs():
   with open(cwd + '/../jobs/metadata.json') as data_file:    
     data = json.load(data_file)
 
@@ -21,6 +25,7 @@ def main():
     default_args = config['default_inputs']
     name = config['name']
     resources = config['resources']
+    inputs = config['inputs']
     resources['dir'] = full_job_dir
 
     job_template = Template("""
@@ -40,11 +45,11 @@ def main():
     module load fftw/3.3.4
     module load python/2.7
 
-    python $dir/compute.py $params
+    python $dir/compute.py $params > log.txt
     """).safe_substitute(resources)
 
     # submitting jobs based available input range
-    for inp in config['inputs']:
+    for inp in inputs:
       # create params string
       s = ""
       run_sh = job_template
@@ -58,10 +63,7 @@ def main():
 
       run_sh = Template(run_sh).substitute(name=name, params=s)
 
-      print(run_sh)
       submit_helper(run_sh)
-
-      # sh.qsub(run_sh)
 
 def submit_helper(run_sh):
     output, input = popen2('qsub')
