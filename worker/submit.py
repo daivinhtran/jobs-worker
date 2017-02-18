@@ -1,11 +1,10 @@
 import json
 from string import Template
 import os
-import sh
 from popen2 import popen2
 
 cwd = os.path.dirname(os.path.abspath(__file__))
-storage_dir = cws + '/../storage'
+storage_dir = cwd + '/../storage'
 
 def main():
   submit_jobs()
