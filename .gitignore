@@ -92,3 +92,5 @@ ENV/
 stderr
 stdout
 
+# storage
+storage/
