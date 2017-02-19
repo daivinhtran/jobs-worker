@@ -62,7 +62,7 @@ def submit_jobs():
 
       run_sh = Template(run_sh).substitute(name=name, params=s)
 
-      submit_helper(run_sh)
+      # submit_helper(run_sh)
 
 def submit_helper(run_sh):
     output, input = popen2('qsub')
