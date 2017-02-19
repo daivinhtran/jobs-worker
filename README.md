@@ -38,9 +38,7 @@ Directory structure:
     "description": "this contains the folder name of the jobs that need to be submitted",
     "note": "please validate the file on jsonlint.com after each change",
     "jobs_dir":[
-        "fermi_diract-singlept",
-        ...,
-        ...
+        "fermi_diract-singlept"
     ],
     "default_resources": {
         "nodes" : 4,
