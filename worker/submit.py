@@ -4,7 +4,10 @@ import os
 from popen2 import popen2
 
 cwd = os.path.dirname(os.path.abspath(__file__))
-storage_dir = cwd + '/../storage'
+full_storage_dir = cwd + '/../storage'
+
+if not os.path.exists(full_storage_dir):
+  os.makedirs(full_storage_dir)
 
 def main():
   submit_jobs()
@@ -25,16 +28,17 @@ def submit_jobs():
     name = config['name']
     resources = config['resources']
     inputs = config['inputs']
-    resources['dir'] = full_job_dir
-
+    resources['job_dir'] = full_job_dir
+    resources['storage_dir'] = full_storage_dir
+ 
     job_template = Template("""
     #!/bin/bash
     #PBS -l nodes=$nodes:ppn=$ppn
     #PBS -l walltime=$walltime
     #PBS -q $queue
     #PBS -N $name
-    #PBS -o stdout
-    #PBS -e stderr
+    #PBS -o $storage_dir/stdout
+    #PBS -e $storage_dir/stderr
 
     module purge
     module load intel/14.0.2
@@ -44,7 +48,7 @@ def submit_jobs():
     module load fftw/3.3.4
     module load python/2.7
 
-    python $dir/compute.py $params > log.txt
+    python $job_dir/compute.py $params > $storage_dir/$name.out
     """).safe_substitute(resources)
 
     # submitting jobs based available input range
@@ -61,8 +65,7 @@ def submit_jobs():
             s += "--{} {} ".format(key, default_args[key])
 
       run_sh = Template(run_sh).substitute(name=name, params=s)
-
-      # submit_helper(run_sh)
+      submit_helper(run_sh)
 
 def submit_helper(run_sh):
     output, input = popen2('qsub')

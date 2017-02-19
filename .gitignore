@@ -95,3 +95,7 @@ stdout
 # log files
 log.txt
 
+=======
+# storage
+storage/
+
