@@ -27,7 +27,7 @@ def main(argv):
       print 'compute.py -t <T> -eps <epsilon> -mu <mu>'
       sys.exit(2)
 
-    print(fermi_dirac(epsilon, mu, T))
+    print(str(epsilon)+","+str(mu)+","+str(T)+","+str(fermi_dirac(epsilon, mu, T))+"\n")
 
 def fermi_dirac(epsilon, mu, T):
     kB = 8.615e-5 #eV/K (we will typically use energy units of eV)
@@ -36,4 +36,4 @@ def fermi_dirac(epsilon, mu, T):
 
 if __name__ == "__main__":
     main(sys.argv[1:])
-    print("SUCCESSFUL")
+   
