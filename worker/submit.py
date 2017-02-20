@@ -48,7 +48,7 @@ def submit_jobs():
     module load fftw/3.3.4
     module load python/2.7
 
-    python $job_dir/compute.py $params > $storage_dir/$name.out
+    python $job_dir/compute.py $params >> $storage_dir/$name.out
     """).safe_substitute(resources)
 
     # submitting jobs based available input range
