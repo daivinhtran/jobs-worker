@@ -24,9 +24,9 @@ Directory structure:
 │   │   ├── compute.py
 │   ├── other-job
 │   │   ├── config.json
-│   │   ├── compute.json  
+│   │   ├── compute.py  
 ├── worker
-│   │   ├── submit.py
+│   ├── submit.py
 ├── storage (only in production)
 │   ├── jobname.out
 ```
