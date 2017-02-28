@@ -27,11 +27,11 @@ def main(argv):
       print 'compute.py -t <T> -eps <epsilon> -mu <mu>'
       sys.exit(2)
     t = time.strftime("%H:%M:%S__%m-%d-%Y")
-    print(str(t)+", "+str(epsilon)+", "+str(mu)+", "+str(T)+", "+str(fermi_dirac(epsilon, mu, T))+"\n")
+    print(str(t) + ", " + str(epsilon) + ", " + str(mu) + ", " + str(T)+ ", " +str(fermi_dirac(epsilon, mu, T)) + "\n")
 
 def fermi_dirac(epsilon, mu, T):
     kB = 8.615e-5 #eV/K (we will typically use energy units of eV)
-    n = 1.0/(np.exp((epsilon-mu)/(kB*T)) + 1.0)
+    n = 1.0 /(np.exp((epsilon - mu)/(kB * T)) + 1.0)
     return n
 
 if __name__ == "__main__":
