@@ -77,9 +77,9 @@ Under each job directory (fermi-dirac-singlept, other-job, ...), `config.json` c
 }
 ```
 
-`storage` folder is used to storage all the calculation after the jobs are completed. I've ignore the folder in development because we don't want to commit and push these data to version control.
+`storage` folder is used to store all the calculations after the jobs have completed. The folder is ignored in this development because we don't yet want to commit and push these data to version control.
 ## Usage guide
-To submit all the jobs specified in jobs/metadata.json. Simple type this 1 command:
+To submit all the jobs specified in jobs/metadata.json. Simply type this 1 command:
 * ```$ python worker/submit.py```
 
 All the computation will be stored under ```storage``` folder. Output from fermi_diract-singplept will be named as ```fermi_dirac.out``` because ```fermi_dirac``` is specified in the ```config.json``` for that job
