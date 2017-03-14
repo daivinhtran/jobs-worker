@@ -6,34 +6,31 @@ import numpy as np
 import pylab as plt
 
 def main(argv):
-    epsilon = None
-    mu = None
-    T = None
-    try:
-      opts, args = getopt.getopt(argv,"",["eps=", "mu=", "t="])
-    except getopt.GetoptError:
-      print 'compute.py -t <T> -eps <epsilon> -mu <mu>'
-      sys.exit(2)
-
-    for opt, arg in opts:
-      if opt == '--eps':
-        epsilon = float(arg)
-      elif opt == '--mu':
-        mu = arg = float(arg)
-      elif opt == '--t':
-        T = arg = int(arg)
-
-    if epsilon is None or mu is None or T is None:
-      print 'compute.py -t <T> -eps <epsilon> -mu <mu>'
-      sys.exit(2)
     t = time.strftime("%H:%M:%S__%m-%d-%Y")
-    print(str(t) + ", " + str(epsilon) + ", " + str(mu) + ", " + str(T)+ ", " +str(fermi_dirac(epsilon, mu, T)) + "\n")
+    output = str(t)
+    for key in argv:
+        if(key!='name'):
+            output+=", "+str(argv[key][0])
+    output+=", "+str(fermi_dirac(argv))
+    print(output)
 
-def fermi_dirac(epsilon, mu, T):
+def parseSysParam(argv):
+    from collections import defaultdict
+    d=defaultdict(list)
+    for k, v in ((k.lstrip('-'), v) for k,v in (a.split('=') for a in argv)):
+        d[k].append(v)
+    return dict(d)
+
+def fermi_dirac(args):
+    epsilon = float(args['eps'][0])
+    mu = float(args['mu'][0])
+    T = float(args['t'][0])
     kB = 8.615e-5 #eV/K (we will typically use energy units of eV)
     n = 1.0 /(np.exp((epsilon - mu)/(kB * T)) + 1.0)
     return n
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+    args = parseSysParam(sys.argv[1:])
+   
+    main(args)
  
