@@ -57,13 +57,13 @@ def submit_jobs():
       s = ""
       run_sh = job_template
       for key in inp:
-          s += "--{} {} ".format(key, inp[key])
+          s += "--{}={} ".format(key, inp[key])
 
       # use default arguments in not specified
       for key in default_args:
           if key not in inp:
-            s += "--{} {} ".format(key, default_args[key])
-
+            s += "--{}={} ".format(key, default_args[key])
+      s += "--{}={}".format("name",name)
       run_sh = Template(run_sh).substitute(name=name, params=s)
       submit_helper(run_sh)
 
