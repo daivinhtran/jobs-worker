@@ -12,8 +12,9 @@ def main(argv):
         if(key!='name'):
             output+=", "+str(argv[key][0])
     funcName = argv[key][0]
-    i = importlib.import_module(funcName+".compute.evaluate")
-    output+=", "+str(evaluate(argv))
+    import importlib
+    i = importlib.import_module(funcName+".compute")
+    output+=", "+str(i.evaluate(argv))
     print(output)
 
 def parseSysParam(argv):
