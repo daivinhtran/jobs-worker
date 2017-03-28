@@ -11,7 +11,10 @@ def main(argv):
     for key in argv:
         if(key!='name'):
             output+=", "+str(argv[key][0])
-    output+=", "+str(fermi_dirac(argv))
+    funcName = argv[key][0]
+    import importlib
+    i = importlib.import_module(funcName+".compute")
+    output+=", "+str(i.evaluate(argv))
     print(output)
 
 def parseSysParam(argv):
@@ -31,6 +34,5 @@ def fermi_dirac(args):
 
 if __name__ == "__main__":
     args = parseSysParam(sys.argv[1:])
-   
     main(args)
  
