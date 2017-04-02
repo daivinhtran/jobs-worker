@@ -12,7 +12,7 @@ def evaluate(args):
 	xc = str(args['xc'][0])
 	be = bool(args['beefensemble'][0])
 	pe = bool(args['printensemble'][0])
-	kpoints = str(args['kpts'][0])
+	kpoints = tuple(float(args['kpts'][0][0]), float(args['kpts'][0][1]), float(args['kpts'][0][2]))
 	p = float(args['pw'][0])
 	d = float(args['dw'][0])
 	sp = bool(args['spinpol'][0])
