@@ -9,7 +9,7 @@ from ase.optimize import QuasiNewton #geometry optimization algorithm; QuasiNewt
 from espresso import espresso
 
 def evaluate(args):
-	xc = str(args['xc'][0])
+	x = str(args['xc'][0])
 	be = bool(args['beefensemble'][0])
 	pe = bool(args['printensemble'][0])
 	kpoints = tuple(float(args['kpts'][0][0]), float(args['kpts'][0][1]), float(args['kpts'][0][2]))
@@ -19,7 +19,7 @@ def evaluate(args):
 	pflags = str(args['parflags'][0])
 	odir = str(args['outdir'][0])
 	
-	calcargs = dict(xc = xc,
+	calcargs = dict(xc = x,
     	beefensemble = be,
     	printensemble = pe,
     	kpts = kpoints, #only need 1 kpt in z-direction
