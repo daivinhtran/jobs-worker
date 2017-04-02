@@ -1,5 +1,5 @@
 {
-  "name": "fermi_dirac",
+  "name": "expresso-calculation",
   "resources": {
     "nodes": [ 1, 2, 4 ],
     "ppn": [ 12, 16, 24 ],
@@ -7,9 +7,12 @@
     "queue": [ "joe-6-intel", "joe-6-ib" ]
   },
   "default_inputs": {
-    "eps": 0.04,
-    "mu": 1.0,
-    "t": 400
+    "beefensemble": "True",
+    "printensemble": "True",
+    "dw": 4000,
+    "spinpol": "False",
+    "parflags": "-nk 2",
+    "outdir": "esp_log"
   },
   "inputs": [
     {
