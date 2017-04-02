@@ -10,8 +10,8 @@ from espresso import espresso
 
 def evaluate(args):
 	x = str(args['xc'][0])
-	be = bool(args['beefensemble'][0])
-	pe = bool(args['printensemble'][0])
+	be = bool(str(args['beefensemble'][0]))
+	pe = bool(str(args['printensemble'][0]))
 	kpoints = tuple(float(args['kpts'][0][0]), float(args['kpts'][0][1]), float(args['kpts'][0][2]))
 	p = float(args['pw'][0])
 	d = float(args['dw'][0])
