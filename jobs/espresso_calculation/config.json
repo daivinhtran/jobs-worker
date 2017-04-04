@@ -1,10 +1,10 @@
 {
   "name": "expresso-calculation",
   "resources": {
-    "nodes": [ 1, 2, 4 ],
-    "ppn": [ 12, 16, 24 ],
-    "walltime": [ "01:00:00", "06:00:00", "12:00:00", "24:00:00" ],
-    "queue": [ "joe-6-intel", "joe-6-ib" ]
+    "nodes": 4,
+    "ppn": 24,
+    "walltime": "24:00:00",
+    "queue": "joe-test"
   },
   "default_inputs": {
     "beefensemble": "True",

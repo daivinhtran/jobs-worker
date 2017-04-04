@@ -37,8 +37,4 @@ def evaluate(args):
 
 	energy = atoms.get_potential_energy() #this is the potential energy of the electrons as computed by DFT. It will be closely related to the enthalpy.
 
-	f = open('converged.log','w')
-	f.write(str(energy))
-	f.close()
-
-	return calc
+	return energy
