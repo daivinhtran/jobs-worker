@@ -48,6 +48,8 @@ def submit_jobs():
     module load fftw/3.3.4
     module load python/2.7
 
+    source /nv/hp22/amedford6/medford-shared/envs/espresso-5.1.r11289-pybeef
+
     python $job_dir/../generalComputing.py $params >> $storage_dir/$name.out
     """).safe_substitute(resources)
 
