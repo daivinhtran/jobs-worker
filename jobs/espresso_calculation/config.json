@@ -1,9 +1,9 @@
 {
-  "name": "expresso-calculation",
+  "name": "espresso_calculation",
   "resources": {
-    "nodes": 4,
-    "ppn": 24,
-    "walltime": "24:00:00",
+    "nodes": 1,
+    "ppn": 16,
+    "walltime": "00:10:00",
     "queue": "joe-test"
   },
   "default_inputs": {
@@ -16,8 +16,8 @@
   },
   "inputs": [
     {
-      "kpts": [4, 4, 1],
-      "pw": 300
+      "kpts": [8, 8, 1],
+      "pw": 400
     }
   ]
 }
