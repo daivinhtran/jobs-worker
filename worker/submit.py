@@ -40,6 +40,9 @@ def submit_jobs():
     #PBS -o $storage_dir/stdout
     #PBS -e $storage_dir/stderr
 
+    source /nv/hp22/amedford6/medford-shared/envs/espresso-5.1.r11289-pybeef
+
+
     module purge
     module load intel/14.0.2
     module load openmpi/1.8
@@ -48,12 +51,12 @@ def submit_jobs():
     module load fftw/3.3.4
     module load python/2.7
 
-    source /nv/hp22/amedford6/medford-shared/envs/espresso-5.1.r11289-pybeef
 
-    python $job_dir/../generalComputing.py $params >> $storage_dir/$name.out
+    python $job_dir/../generalComputing.py $params
     """).safe_substitute(resources)
 
     # submitting jobs based available input range
+    print(inputs)
     for inp in inputs:
       # create params string
       s = ""
@@ -66,6 +69,7 @@ def submit_jobs():
           if key not in inp:
             s += "--{}={} ".format(key, default_args[key])
       s += "--{}={}".format("name",name)
+      print(s)
       run_sh = Template(run_sh).substitute(name=name, params=s)
       submit_helper(run_sh)
 

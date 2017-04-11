@@ -1,4 +1,4 @@
-#This is a heavy calculation that requires the use of a supercomputer. It must be submitted using the run.sh script.
+#his is a heavy calculation that requires the use of a supercomputer. It must be submitted using the run.sh script.
 
 #Import all necessary modules
 from ase import io

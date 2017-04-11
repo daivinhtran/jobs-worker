@@ -2,7 +2,6 @@
 import time as time
 import sys, getopt
 import numpy as np
-import pylab as plt
 from ase import io
 from ase.parallel import paropen as open #ensures that open works in parallel environment
 from ase.optimize import QuasiNewton #geometry optimization algorithm; QuasiNewton links to BFGS line search, which is the best general-purpose optimizer, but other options are available: https://wiki.fysik.dtu.dk/ase/ase/optimize.html
@@ -18,7 +17,7 @@ def evaluate(args):
 	sp = bool(args['spinpol'][0])
 	pflags = str(args['parflags'][0])
 	odir = str(args['outdir'][0])
-	
+	print(x,be,pe,kpoints,p,d,sp,pflags,odir)
 	calcargs = dict(xc = x,
     	beefensemble = be,
     	printensemble = pe,
@@ -36,5 +35,7 @@ def evaluate(args):
 	atoms.set_calculator(calc)
 
 	energy = atoms.get_potential_energy() #this is the potential energy of the electrons as computed by DFT. It will be closely related to the enthalpy.
-
+	f = open('converged.log','w')
+	f.write(str(energy))
+	f.close()
 	return energy

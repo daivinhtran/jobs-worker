@@ -1,18 +1,15 @@
-
-#!/usr/bin/python
 import time as time
 import sys, getopt
 import numpy as np
-import pylab as plt
-
+import importlib
 def main(argv):
     t = time.strftime("%H:%M:%S__%m-%d-%Y")
     output = str(t)
+    print(argv)
     for key in argv:
         if(key!='name'):
             output+=", "+str(key)+"="+str(argv[key][0])
     funcName = argv[key][0]
-    import importlib
     i = importlib.import_module(funcName+".compute")
     output+=", "+"Result="+str(i.evaluate(argv))
     print(output)
