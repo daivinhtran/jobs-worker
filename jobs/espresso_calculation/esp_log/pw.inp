@@ -10,7 +10,7 @@
   celldm(1)=1.8897261245650618d0,
   nat=3,
   ntyp=1,
-  ecutwfc=29.3994590327d0,
+  ecutwfc=73.4986475817d0,
   ecutrho=293.994590327d0,
   nbnd=34,
   occupations='smearing',
