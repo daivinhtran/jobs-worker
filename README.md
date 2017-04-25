@@ -78,7 +78,10 @@ Under each job directory (fermi-dirac-singlept, other-job, ...), `config.json` c
   ]
 }
 ```
-
+## Output
+```
+19:39:09__04-11-2017, kpts=[8, 8, 1], pw=500, parflags=-nk 2, beefensemble=True, printensemble=True, dw=4000, outdir=esp_log, spinpol=False, Result=-8666.90028285
+```
 `storage` folder is used to store all the calculations after the jobs have completed. The folder is ignored in this development because we don't yet want to commit and push these data to version control.
 
 ## Generating Inputs
