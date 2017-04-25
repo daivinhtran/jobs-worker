@@ -1,3 +1,5 @@
+# DEPRECATED FOR LATER USE
+
 import json
 import itertools
 

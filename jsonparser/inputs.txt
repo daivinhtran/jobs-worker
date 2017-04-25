@@ -1,0 +1,14 @@
+config_file_directory_out | ../jobs/espresso_calculation
+job_name | espresso_calculation
+nodes | 1
+ppn | 16
+walltime | 00:10:00
+queue | joe-test
+beefensemble | True
+printensemble | True
+dw | 4000
+spinpol | False
+parflags | -nk 2
+outdir | esp_log
+kpts | (4, 4, 1) | (6, 6, 1) | (8, 8, 1) | (10, 10, 1) | (12, 12, 1) | (16, 16, 1)
+pw | 300 | 400 | 500 | 600 | 800 | 1000
