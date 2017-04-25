@@ -1,0 +1,17 @@
+#Given user inputs:
+kpts = [(4,4,1),(6,6,1),(8,8,1),(10,10,1),(12,12,1),(16,16,1)]
+pw = [300,400,500,600,800,1000]
+
+# Recommend: 
+parflags_nk = ['', '-nk 2', '-nk 4'] #read more here: http://www.quantum-espresso.org/wp-content/uploads/Doc/user_guide/node18.html
+parflags_nt = ['', '-nt 2', '-nt 4']
+# parflags is a concatenation of parflags_nk and parflags_nt
+queue = [joe-6-intel, joe-6-ib]
+nodes = [1,2,4] 
+ppn = [12,16,24] #note that different queues will have different # cores/node
+walltime = [1:00:00, 6:00:00, 12:00:00, 24:00:00] #different queues will have different walltime limits.
+
+# Goal is to minimize total walltime to completion, which will require miniizing:
+# 1) Time spent on calculation (depends primarily on user inputs, nodes/cores, and parallelization scheme)
+# 2) Total amount of time waiting in queue (depends on current queue state, see pace-check-queue)
+# 3) Probability of crashes (depends on walltime, queue, nodes/cores and parallelization scheme)
