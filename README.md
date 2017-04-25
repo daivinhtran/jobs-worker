@@ -82,7 +82,7 @@ Under each job directory (fermi-dirac-singlept, other-job, ...), `config.json` c
 ## Generating Inputs
 Our system works well for small numbers of jobs, but often times, it's desireable to generate the input combinations from a range of inputs, a Direct Product. For example, let's say I want the range `input1 = [1, 2]` and range `input2 = [5, 6]`. While it's certainly possible to do this manually for our system, to specify each combination of inputs of the Direct Product `(1, 5), (1, 6), (2, 5), (2, 6)`, it does not generalize well for larger inputs.
 
-So, we have created an input generator to generate the config.json file given a range of values. To do this, we need an input file like `inputs.txt` below.
+So, we have created an input generator to generate the `config.json` file given a range of values. To do this, we need an input file like `inputs.txt` below.
 ```
 config_file_directory_out | ../jobs/espresso_calculation
 job_name | espresso_calculation
