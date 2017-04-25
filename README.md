@@ -19,12 +19,14 @@ Directory structure:
 ├── README.md
 ├── jobs
 │   ├── medadata.json
+|   ├── generalComputing.py
 │   ├── fermi-dirac-singlept
 │   │   ├── config.json
 │   │   ├── compute.py
 │   ├── other-job
 │   │   ├── config.json
 │   │   ├── compute.py  
+|   |   ├── other needed files
 ├── worker
 │   ├── submit.py
 ├── storage (only in production)
